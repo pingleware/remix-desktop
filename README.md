@@ -6,3 +6,6 @@ I forked the desktop version and moved to a sub-directory named archived.
 
 # Remix in HTTPS-mode
 If you are using Web2 to connect a wallet to Remix, you will need to switch to http: mode. You can do this in the settings.json by specifying https: as "off"
+
+# REMIX Desktop Version
+You should try installing the official desktop version from the Remix Team at https://github.com/ethereum/remix-desktop. If the application will no launch, then download this webapp version.
