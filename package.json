@@ -1,84 +1,71 @@
 {
-  "version": "1.3.3",
-  "name": "remix-ide",
-  "description": "Remix - Ethereum IDE",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron .",
-    "dist": "electron-builder",
-    "release": "yarn run dist"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ethereum/remix-desktop.git"
-  },
-  "author": {
-    "name": "Remix Team",
-    "email": "remix@ethereum.org"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ethereum/remix-desktop/issues"
-  },
-  "homepage": "https://github.com/ethereum/remix-desktop#readme",
-  "devDependencies": {
-    "electron": "6.0.9",
-    "electron-builder": "^21.2.0"
-  },
+  "name": "remix",
+  "version": "1.0.0",
+  "description": "An electron webapp for https://remix.ethereum.org",
+  "main": "index.js",
   "build": {
-    "productName": "Remix IDE",
-    "appId": "org.ethereum.remix-ide",
-    "asar": false,
-    "files": [
-      "main.js",
-      "selectFolder.js",
-      "setFolder.js",
-      "applicationMenu.js",
-      "config.js",
-      "build/icon.png",
-      "*.asar",
-      "*.zip"
-    ],
-    "mac": {
-      "category": "public.app-category.productivity",
-      "target": [
-        "zip",
-        "dmg"
-      ],
-      "darkModeSupport": true
-    },
-    "nsis": {
-      "createDesktopShortcut": "always",
-      "allowToChangeInstallationDirectory": true,
-      "oneClick": false,
-      "shortcutName": "Remix IDE"
-    },
+    "appId": "org.ethereum.remix",
+    "productName": "remix",
+    "copyright": "Copyright © 2020 ${author}",
     "win": {
-      "target": [
-        "zip",
-        "nsis"
-      ]
+      "icon": "./remix-desktop-open.png"
     },
     "linux": {
-      "target": [
-        "deb",
-        "snap",
-        "AppImage"
-      ],
-      "category": "WebBrowser"
+      "target": "deb",
+      "icon": "./remix-desktop-open.png",
+      "category": "Office",
+      "synopsis": "Webapp for REMIX at ethereum.org"
     },
-    "directories": {
-      "output": "release"
-    }
+    "mac": {
+      "icon": "./remix-desktop-open.icns",
+      "category": "public.app-category.office"
+    },
+    "dmg": {
+      "title": "${productName}_${version}",
+      "icon": "./remix-desktop-open.icns",
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "files": [],
+    "extraFiles": [
+      "settings.json"
+    ]
   },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "remix.ethereum.org"
+  ],
+  "author": "Remix Team <remix@ethereum.org>",
+  "maintainers": [
+    {
+      "name": "PressPage Entertainment Inc DBA PINGLEWARE",
+      "email": "maintainers@pingleware.work"
+    }
+  ],
+  "license": "MIT",
   "dependencies": {
-    "@remix-project/remixd": "^0.5.5",
-    "electron-app-manager": "0.57.0",
-    "ipfs": "^0.52.2",
-    "ipfs-http-gateway": "^0.1.3",
-    "latest-version": "^5.1.0",
-    "node-fetch": "^2.6.1",
-    "semver": "^7.3.5",
-    "fs-extra": "^3.0.1"
+    "config.json": "^0.0.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "electron": "^16.0.5",
+    "electron-builder": "^22.5.1",
+    "electron-installer-windows": "^3.0.0",
+    "electron-packager": "^15.4.0"
   }
 }

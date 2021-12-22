@@ -1,0 +1,84 @@
+{
+  "version": "1.3.3",
+  "name": "remix-ide",
+  "description": "Remix - Ethereum IDE",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "release": "yarn run dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethereum/remix-desktop.git"
+  },
+  "author": {
+    "name": "Remix Team",
+    "email": "remix@ethereum.org"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ethereum/remix-desktop/issues"
+  },
+  "homepage": "https://github.com/ethereum/remix-desktop#readme",
+  "devDependencies": {
+    "electron": "16.0.5",
+    "electron-builder": "^22.14.5"
+  },
+  "build": {
+    "productName": "Remix IDE",
+    "appId": "org.ethereum.remix-ide",
+    "asar": false,
+    "files": [
+      "main.js",
+      "selectFolder.js",
+      "setFolder.js",
+      "applicationMenu.js",
+      "config.js",
+      "build/icon.png",
+      "*.asar",
+      "*.zip"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "zip",
+        "dmg"
+      ],
+      "darkModeSupport": true
+    },
+    "nsis": {
+      "createDesktopShortcut": "always",
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "shortcutName": "Remix IDE"
+    },
+    "win": {
+      "target": [
+        "zip",
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "snap",
+        "AppImage"
+      ],
+      "category": "WebBrowser"
+    },
+    "directories": {
+      "output": "release"
+    }
+  },
+  "dependencies": {
+    "@remix-project/remixd": "^0.5.5",
+    "electron-app-manager": "0.57.1",
+    "ipfs": "^0.61.0",
+    "ipfs-http-gateway": "^0.8.0",
+    "latest-version": "^6.0.0",
+    "node-fetch": "^3.1.0",
+    "semver": "^7.3.5",
+    "fs-extra": "^10.0.0"
+  }
+}
