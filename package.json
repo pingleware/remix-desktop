@@ -13,7 +13,7 @@
     "linux": {
       "target": "deb",
       "icon": "./remix-desktop-open.png",
-      "category": "Office",
+      "category": "Programming",
       "synopsis": "Webapp for REMIX at ethereum.org"
     },
     "mac": {
@@ -45,7 +45,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "pack-armv7l": "electron-builder --dir --armv7l",
+    "dist-armv7l": "electron-builder --armv7l"
   },
   "keywords": [
     "remix.ethereum.org"
